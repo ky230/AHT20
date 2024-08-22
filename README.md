@@ -1,7 +1,7 @@
-#Run take data
+# Run take data
 
 source evi.sh
 
+# Run plotting
 
-#Run plotting
 source plot.sh
