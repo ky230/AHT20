@@ -11,8 +11,11 @@ python -c "import h5py; import pandas as pd; import matplotlib.pyplot as plt; im
 ```
 # Run take data
 
-`source evi.sh`
+```
+source evi.sh
+```
 
 # Run plotting
-
-`source plot.sh`
+```
+source plot.sh`
+```
