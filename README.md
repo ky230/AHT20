@@ -1,5 +1,5 @@
 # Installing
-
+```bash
 conda create -n AHT20 python=3.11
 conda install numpy scipy matplotlib pandas h5py matplotlib pyserial 
 conda config --add channels conda-forge
