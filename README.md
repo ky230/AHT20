@@ -133,3 +133,32 @@ Line 916 :  change qaqc-gui.py Line 811 into:
 ```python
 frame_temps.pack(expand=1,fill='both',side=tk.BOTTOM)
 ```
+
+Add new buttons and labels  below qaqc-gui.py Line 998:
+Line 1115 ~ Line 1135
+```python
+    # 在 frame_temps 中添加3个标签
+    AHT20_text = {}
+    AHT20_text['Time'] = tk.Label(frame_temps, text="Timestamp: --", width=50)
+    AHT20_text['Temp'] = tk.Label(frame_temps, text="Temperature (°C): --", width=50)
+    AHT20_text['Hum'] = tk.Label(frame_temps, text="Humidity (%): --", width=50)
+
+    AHT20_text['Time'].pack()
+    AHT20_text['Temp'].pack()
+    AHT20_text['Hum'].pack()
+
+
+    # 创建按钮
+    button_module = tk.Button(master=frame_buttons, text="Tem&Hum Monitoring", width=25, height=5, command=start_AHT20_monitoring)
+    button_module.pack()
+
+    # 创建停止按钮
+    button_plot = tk.Button(master=frame_buttons, text="Plotting Tem&Hum Monitoring", width=25, height=5, command=draw_AHT20_monitoring)
+    button_plot.pack()  # 设置按钮位置
+
+    # 创建停止按钮
+    button_stop = tk.Button(master=frame_buttons, text="Stop Tem&Hum Monitoring", width=25, height=5, command=stop_AHT20_monitoring)
+    button_stop.pack()  # 设置按钮位置
+
+```
+
