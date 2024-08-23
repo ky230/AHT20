@@ -35,7 +35,7 @@ aht20_process = None
 ```
 
 ##  Comment function read_dht22   and define our functions
-Line 698 ~ Line 704:  Comment read_dht22
+### Line 698 ~ Line 704:  Comment read_dht22
 ```python
 # def read_dht22():
 #     out = Popen(['ssh', 'cmsdaq@raspcmsroma01', 'tail', '-n 1', '/home/cmsdaq/SHT40/temp.txt'],stdout=PIPE)
@@ -47,7 +47,7 @@ Line 698 ~ Line 704:  Comment read_dht22
 ```
 
 
-Line 710 ~ Line 782 :  Define our functions
+### Line 710 ~ Line 782 :  Define our functions
 ```python
 def read_AHT20():
     """读取最新的 AHT20 数据并更新GUI"""
@@ -125,17 +125,16 @@ def stop_AHT20_monitoring():
 ```
 
 ##  update in main function
-Line 894 :   Add AHT20.py termination button
+### Line 894 :   Add AHT20.py termination button
 ```python
 root.protocol("WM_DELETE_WINDOW", on_closing_AHT20)
 ```
-Line 916 :  change qaqc-gui.py Line 811 into:
+### Line 916 :  change qaqc-gui.py Line 811 into:
 ```python
 frame_temps.pack(expand=1,fill='both',side=tk.BOTTOM)
 ```
 
-Add new buttons and labels  below qaqc-gui.py Line 998:
-Line 1115 ~ Line 1135
+### Add new buttons and labels  below qaqc-gui.py Line 998:  see Line 1115 ~ Line 1135
 ```python
     # 在 frame_temps 中添加3个标签
     AHT20_text = {}
