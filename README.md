@@ -22,6 +22,21 @@ source plot.sh`
 ```
 
 
+# Add 3 new buttons of Tem&Hum monitoring
+
+![Tem&Hum Monitoring GUI](gui.jpg)
+
+##  Tem&Hum Monitoring 
+Start Temparture and Humidity Monitoring  and save THdata*.txt in /home/pkumtd/Desktop/AHT20/QAQC_PKU
+
+##  Plotting Tem&Hum Monitoring 
+
+Real time drawing of temperature and humidity images
+
+##  Stop Tem&Hum Monitoring
+Stop Temparture and Humidity Monitoring  ⚠️：Must  click this button before exiting the GUI interface
+
+
 # Details of qaqc-gui-pku.py update
 
 ## Add  head file "signal"   and  global variable ：“aht20_process”
