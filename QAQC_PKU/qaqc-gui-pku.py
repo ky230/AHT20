@@ -7,6 +7,7 @@ Last Updated: Jan 24, 2023
 """
 USE_TTi = False
 USE_CHILLER = False
+
 import glob
 from btl import Client
 import tkinter as tk
@@ -1125,9 +1126,9 @@ if __name__ == '__main__':
     button_module = tk.Button(master=frame_buttons, text="Tem&Hum Monitoring", width=25, height=5, command=start_AHT20_monitoring)
     button_module.pack()
 
-    # 创建停止按钮
-    button_stop = tk.Button(master=frame_buttons, text="Plotting Tem&Hum Monitoring", width=25, height=5, command=draw_AHT20_monitoring)
-    button_stop.pack()  # 设置按钮位置
+    # 创建绘图按钮
+    button_plot = tk.Button(master=frame_buttons, text="Plotting Tem&Hum Monitoring", width=25, height=5, command=draw_AHT20_monitoring)
+    button_plot.pack()  # 设置按钮位置
 
     # 创建停止按钮
     button_stop = tk.Button(master=frame_buttons, text="Stop Tem&Hum Monitoring", width=25, height=5, command=stop_AHT20_monitoring)
