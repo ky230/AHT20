@@ -18,4 +18,14 @@ source evi.sh
 # Run plotting
 ```
 source plot.sh`
+
 ```
+
+
+# Details of qaqc-gui-pku.py
+
+## Add  head file "signal"   and  global variable aht20_process
+Line 25
+
+```python
+import signal
