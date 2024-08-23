@@ -22,7 +22,7 @@ source plot.sh`
 ```
 
 
-# Add 3 new buttons of Tem&Hum monitoring
+# Add 3 new buttons of Tem&Hum monitoring in qaqc-gui-pku.py
 
 ![Tem&Hum Monitoring GUI](gui.jpg)
 
