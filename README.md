@@ -90,7 +90,7 @@ def read_AHT20():
         AHT20_text['Temp'].config(text="Temperature: --")
         AHT20_text['Hum'].config(text="Humidity: --")
    
-    # 5000 毫秒后再次调用 read_AHT20
+    # 2000 毫秒后再次调用 read_AHT20
     root.after(2000, read_AHT20)
 
 def start_AHT20_monitoring():
