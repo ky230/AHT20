@@ -124,7 +124,7 @@ def stop_AHT20_monitoring():
         aht20_process = None  # 重置进程变量    
 ```
 
-##  update in main function
+##  Update in main function
 ### Line 894 :   Add AHT20.py termination button
 ```python
 root.protocol("WM_DELETE_WINDOW", on_closing_AHT20)
