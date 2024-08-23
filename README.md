@@ -34,7 +34,8 @@ Start Temparture and Humidity Monitoring  and save THdata*.txt in /home/pkumtd/D
 Real time drawing of temperature and humidity images
 
 ##  Stop Tem&Hum Monitoring
-Stop Temparture and Humidity Monitoring  ⚠️：Must  click this button before exiting the GUI interface
+Stop Temparture and Humidity Monitoring  
+⚠️：Must  click this button before exiting the GUI interface
 
 
 # Details of qaqc-gui-pku.py update
