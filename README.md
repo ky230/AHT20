@@ -129,7 +129,7 @@ Line 894 :   Add AHT20.py termination button
 ```python
 root.protocol("WM_DELETE_WINDOW", on_closing_AHT20)
 ```
-Line 916 :  change qaqc-gui Line 811 into:
+Line 916 :  change qaqc-gui.py Line 811 into:
 ```python
 frame_temps.pack(expand=1,fill='both',side=tk.BOTTOM)
 ```
