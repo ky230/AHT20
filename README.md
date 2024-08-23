@@ -32,5 +32,20 @@ import signal
 Line 29
 ```python
 aht20_process = None
+```
+
+##  Comment function read_dht22   and define our functions
+Comment read_dht22
+```python
+# def read_dht22():
+#     out = Popen(['ssh', 'cmsdaq@raspcmsroma01', 'tail', '-n 1', '/home/cmsdaq/SHT40/temp.txt'],stdout=PIPE)
+#     vals = (out.stdout.read().decode('utf-8')).split(',')
+#     for i in range(1):
+#         dht22_text[(i,'temp')].config(text="%.1f"%float(vals[0+0+2*i]))
+#         dht22_text[(i,'hum')].config(text="%.1f"%float(vals[0+1+2*i]))
+#     root.after(3000,read_dht22)
+```
+
+
 
 ```
