@@ -1,5 +1,5 @@
 # AHT20 & Arduino Uno
-
+![Tem&Hum Monitoring GUI](AHT20.jpg)
 | AHT20 引脚 | Arduino Uno 引脚 |
 |------------|------------------|
 | SCL        | A5               |
