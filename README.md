@@ -1,3 +1,14 @@
+# AHT20 & Arduino Uno
+
+| AHT20 引脚 | Arduino Uno 引脚 |
+|------------|------------------|
+| SCL        | A5               |
+| SDA        | A4               |
+| VCC        | 5V               |
+| GND        | GND              |
+
+
+
 # Installing
 ```bash
 conda create -n AHT20 python=3.11
