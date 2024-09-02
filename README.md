@@ -39,19 +39,21 @@ If right:
 serial_port = '/dev/ttyACM0'
 ```
 
+# test.py (independent code)
+![Tem&Hum Monitoring GUI](test.jpg)
+
 
 # New button : Test Tem&Hum Monitoring
 ![Tem&Hum Monitoring GUI](qaqc-TCA9548A.jpg)
-
+[https://github.com/ky230/AHT20/blob/e9dd131ee8d95bafc770a40feeb43faecf2b54bc/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L1396-L1397]
 
 ## update Plotting button
 
+
 ![Tem&Hum Monitoring GUI](Plotting.jpg)
 
-[https://github.com/ky230/AHT20/blob/e9dd131ee8d95bafc770a40feeb43faecf2b54bc/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L1396-L1397]
 
-# test.py (independent code)
-![Tem&Hum Monitoring GUI](test.jpg)
+
 
 
 
@@ -61,6 +63,7 @@ serial_port = '/dev/ttyACM0'
 ## Add new head file
 [https://github.com/ky230/AHT20/blob/e9dd131ee8d95bafc770a40feeb43faecf2b54bc/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L27-L29]
 
+
 ## Add new global variable
 
 https://github.com/ky230/AHT20/blob/02bac9d1c16a3ce11920e34191d235469bc5c8cb/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L33
@@ -69,6 +72,15 @@ https://github.com/ky230/AHT20/blob/02bac9d1c16a3ce11920e34191d235469bc5c8cb/QAQ
 timestamp = None ##%
 ```
 
+## update functions 
+https://github.com/ky230/AHT20/blob/38aa8b12342559e1c4f2bcf06f2a1fdd35e53617/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L714 ~ https://github.com/ky230/AHT20/blob/38aa8b12342559e1c4f2bcf06f2a1fdd35e53617/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L987
+
+## add new temps
+[https://github.com/ky230/AHT20/blob/e9dd131ee8d95bafc770a40feeb43faecf2b54bc/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L1329-L1378]
+
+
+## add protection
+[https://github.com/ky230/AHT20/blob/e9dd131ee8d95bafc770a40feeb43faecf2b54bc/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L1482]
 
 
 
