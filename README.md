@@ -59,13 +59,9 @@ serial_port = '/dev/ttyACM0'
 # qaqc-pku-gui-TCA9548A.py
 
 ## Add new head file
-https://github.com/ky230/AHT20/blob/02bac9d1c16a3ce11920e34191d235469bc5c8cb/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L27 ~  https://github.com/ky230/AHT20/blob/02bac9d1c16a3ce11920e34191d235469bc5c8cb/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L29
+[https://github.com/ky230/AHT20/blob/02bac9d1c16a3ce11920e34191d235469bc5c8cb/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L27 ~  https://github.com/ky230/AHT20/blob/02bac9d1c16a3ce11920e34191d235469bc5c8cb/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L27-29](https://github.com/ky230/AHT20/blob/38aa8b12342559e1c4f2bcf06f2a1fdd35e53617/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L27)
 
-```python
-import threading ##%
-import re
-import sys
-```
+
 ## Add new global variable
 
 https://github.com/ky230/AHT20/blob/02bac9d1c16a3ce11920e34191d235469bc5c8cb/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L33
