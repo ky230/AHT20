@@ -59,7 +59,7 @@ https://github.com/ky230/AHT20/blob/e9dd131ee8d95bafc770a40feeb43faecf2b54bc/QAQ
 
 
 
-# QCQC_PKU/qaqc-pku-gui-TCA9548A.py
+# Details of QCQC_PKU/qaqc-pku-gui-TCA9548A.py
 This is test version of qaqc-gui-pku  with new update
 
 ## other new files
