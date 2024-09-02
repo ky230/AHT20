@@ -70,9 +70,7 @@ This is test version of qaqc-gui-pku  with new update
 
 https://github.com/ky230/AHT20/blob/02bac9d1c16a3ce11920e34191d235469bc5c8cb/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L33
 
-```python
-timestamp = None ##%
-```
+
 
 ## update functions 
 [https://github.com/ky230/AHT20/blob/e9dd131ee8d95bafc770a40feeb43faecf2b54bc/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L714-L987]
