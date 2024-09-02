@@ -1,6 +1,6 @@
 # TCA9548A & Arduino Uno
 ![Tem&Hum Monitoring GUI](TCA9548A.png)
-| AHT20 引脚 | Arduino Uno 引脚 |
+| TCA9548A 引脚 | Arduino Uno 引脚 |
 |------------|------------------|
 | SCL        | A5               |
 | SDA        | A4               |
