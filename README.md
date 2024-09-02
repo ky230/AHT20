@@ -40,6 +40,7 @@ serial_port = '/dev/ttyACM0'
 ```
 
 # test.py (independent code)
+Now we add muti AHT20 Tem&Hum system(max:8)
 ![Tem&Hum Monitoring GUI](test.jpg)
 
 
