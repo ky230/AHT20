@@ -43,9 +43,12 @@ serial_port = '/dev/ttyACM0'
 # New button : Test Tem&Hum Monitoring
 ![Tem&Hum Monitoring GUI](qaqc-TCA9548A.jpg)
 
+
 ## update Plotting button
 
 ![Tem&Hum Monitoring GUI](Plotting.jpg)
+
+[https://github.com/ky230/AHT20/blob/e9dd131ee8d95bafc770a40feeb43faecf2b54bc/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L1396-L1397]
 
 # test.py (independent code)
 ![Tem&Hum Monitoring GUI](test.jpg)
