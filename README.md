@@ -59,8 +59,14 @@ Now we add muti AHT20 Tem&Hum system(max:8)
 
 
 
-# qaqc-pku-gui-TCA9548A.py
+# QCQC_PKU/qaqc-pku-gui-TCA9548A.py
 This is test version of qaqc-gui-pku  with new update
+
+## other new files
+QCQC_PKU/TCA9548A.py  QCQC_PKU/drawplot.py  QCQC_PKU/test.py TCA9548A.ino
+
+These are all configured in PKU MTD2!
+
 
 ## Add new head file
 [https://github.com/ky230/AHT20/blob/e9dd131ee8d95bafc770a40feeb43faecf2b54bc/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L27-L29]
