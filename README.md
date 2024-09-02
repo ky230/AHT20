@@ -83,7 +83,7 @@ timestamp = None ##%
 
 
 
-
+<!--
 
 
 # TCA9548A & Arduino Uno
@@ -287,4 +287,5 @@ frame_temps.pack(expand=1,fill='both',side=tk.BOTTOM)
     button_stop.pack()  # 设置按钮位置
 
 ```
+-->
 
