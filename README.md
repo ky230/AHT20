@@ -148,9 +148,9 @@ source plot.sh`
 ```
 
 
-# Add 3 new buttons of Tem&Hum monitoring in qaqc-gui-pku.py
+# Add 3 new buttons of Tem&Hum monitoring in qaqc-gui.py
 
-![Tem&Hum Monitoring GUI](gui.jpg)
+![Tem&Hum Monitoring GUI](QAQC_PKU_gui/3buttons.jpg)
 
 ##  Tem&Hum Monitoring 
 Start Temparture and Humidity Monitoring  and save THdata*.txt in /home/pkumtd/Desktop/AHT20/QAQC_PKU
