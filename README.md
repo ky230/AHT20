@@ -60,6 +60,8 @@ https://github.com/ky230/AHT20/blob/e9dd131ee8d95bafc770a40feeb43faecf2b54bc/QAQ
 # Details of QCQC_PKU/qaqc-pku-gui-TCA9548A.py
 This is test version of qaqc-gui-pku  with new update
 
+new version of qaqc-gui please find in gitlab, other python file you can find in my foloder QAQC_PKU_gui
+
 ## other new files
 QCQC_PKU/TCA9548A.py  QCQC_PKU/drawplot.py  QCQC_PKU/test.py TCA9548A.ino
 
