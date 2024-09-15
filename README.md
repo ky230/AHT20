@@ -39,19 +39,17 @@ If right:
 serial_port = '/dev/ttyACM0'
 ```
 
-# test.py (independent code)
-Now we add muti AHT20 Tem&Hum system(max:8)
-![Tem&Hum Monitoring GUI](test.jpg)
+
 
 
 # New button : Test Tem&Hum Monitoring
-![Tem&Hum Monitoring GUI](qaqc-TCA9548A.jpg)
+![Tem&Hum Monitoring GUI](3buttons.jpg)
 https://github.com/ky230/AHT20/blob/e9dd131ee8d95bafc770a40feeb43faecf2b54bc/QAQC_PKU/qaqc-gui-pku-TCA9548A.py#L1396-L1397
 
 ## update Plotting button
 
 
-![Tem&Hum Monitoring GUI](Plotting.jpg)
+![Tem&Hum Monitoring GUI](Plot.jpg)
 
 
 
