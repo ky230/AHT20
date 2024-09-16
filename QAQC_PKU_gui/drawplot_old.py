@@ -8,7 +8,6 @@ import matplotlib.ticker as ticker
 import matplotlib.dates as mdates
 from matplotlib.animation import FuncAnimation
 from datetime import datetime
-import numpy as np
 
 
 
@@ -75,98 +74,49 @@ def plot_data(sensor_list, save_path=None):
         # 遍历传感器列表，绘制相应数据
         for sensor in sensor_list:
             if sensor.lower() == 'average':
+                # 查找并绘制平均值文件
                 average_files = find_files_in_folder(latest_folder, 'average_*.txt')
                 print(f"Average files found: {average_files}")
-                
                 if average_files:
                     avg_data = read_data(average_files[0])
-                    
                     if not avg_data.empty:
-                        avg_data = avg_data.reset_index(drop=True)  
-                        
-                        
-                        corrected_temperature = []
-                        corrected_humidity = []
-                        
-                        # 设置初始值
-                        prev_temperature = avg_data['Temperature(°C)'].iloc[0]
-                        prev_humidity = avg_data['Humidity(%)'].iloc[0]
-
-                        # 修正温度和湿度数据
-                        for i in range(len(avg_data)):
-                            curr_temperature = avg_data['Temperature(°C)'].iloc[i]
-                            curr_humidity = avg_data['Humidity(%)'].iloc[i]
-                            
-                            # 检查温度变化是否大于0.1%
-                            if abs(curr_temperature - prev_temperature) > 0.001 * prev_temperature:
-                                curr_temperature = prev_temperature  
-                            
-                            # 检查湿度变化是否大于0.1%
-                            if abs(curr_humidity - prev_humidity) > 0.001 * prev_humidity:
-                                curr_humidity = prev_humidity  
-                            
-                            
-                            corrected_temperature.append(curr_temperature)
-                            corrected_humidity.append(curr_humidity)
-                            
-                            
-                            prev_temperature = curr_temperature
-                            prev_humidity = curr_humidity
-                        
-                     
-                        axs[0].plot(avg_data.index, corrected_temperature, linestyle='-', marker=None, label='Average Temperature', linewidth=1)
-                        axs[1].plot(avg_data.index, corrected_humidity, linestyle='-', marker=None, label='Average Humidity ', linewidth=1)
+                        axs[0].plot(avg_data['Timestamp'], avg_data['Temperature(°C)'], linestyle='-', marker=None, label=f'Average')
+                        axs[1].plot(avg_data['Timestamp'], avg_data['Humidity(%)'], linestyle='-', marker=None, label=f'Average')
             else:
                 sensor_files = find_files_in_folder(latest_folder, f'{sensor}_*.txt')
+                print(f"Sensor files found: {sensor_files}")
                 if sensor_files:
                     sensor_data = read_data(sensor_files[0])
                     if not sensor_data.empty:
-                        sensor_data = sensor_data.reset_index(drop=True)
-
-                        sensor_id = sensor.split('_')[1]
+                        # 根据传感器ID映射，生成新的模块ID
+                        sensor_id = sensor.split('_')[1]  # 获取AHT20_X中的X
                         module_id = map_sensor_id(sensor_id)
 
-                        axs[0].plot(sensor_data.index, sensor_data['Temperature(°C)'], linestyle='-', marker=None, label=f'MOD_board_{module_id}', linewidth=1)
-                        axs[1].plot(sensor_data.index, sensor_data['Humidity(%)'], linestyle='-', marker=None, label=f'MOD_board_{module_id}', linewidth=1)
-
-                        xticks = axs[0].get_xticks().astype(int)  
-                        valid_xticks = xticks[(xticks >= 0) & (xticks < len(sensor_data))]  
-
-                        time_labels = sensor_data['Timestamp'].iloc[valid_xticks].dt.strftime('%H:%M:%S')
-
-                        axs[0].set_xticks(valid_xticks)  
-                        axs[0].set_xticklabels(time_labels, rotation=45, ha='right')
-                        axs[0].xaxis.set_major_locator(ticker.MaxNLocator(nbins=7))
-    
-
-                        axs[1].set_xticks(valid_xticks) 
-                        axs[1].set_xticklabels(time_labels, rotation=45, ha='right')
-                        axs[1].legend(loc='upper left', bbox_to_anchor=(1.1, 1.0), fontsize='small')
-                        axs[1].xaxis.set_major_locator(ticker.MaxNLocator(nbins=7))
-
-        # 获取当前时间用于标题
+                        # 绘制温度和湿度图
+                        axs[0].plot(sensor_data['Timestamp'], sensor_data['Temperature(°C)'], linestyle='-', marker=None, label=f'MOD_board_{module_id}')
+                        axs[1].plot(sensor_data['Timestamp'], sensor_data['Humidity(%)'], linestyle='-', marker=None, label=f'MOD_board_{module_id}')
+         
+        # 设置温度图的属性
         now = datetime.now()
         AAA = now.strftime('%Y-%m-%d')
-
-        # 设置温度图的属性
         axs[0].grid(True)
         axs[0].set_ylabel('Temperature (°C)')
-        axs[0].set_title(f'Temperature vs Time ({AAA})')
-        #axs[0].set_xlabel('Row Number')
-        axs[0].legend(loc='upper left', bbox_to_anchor=(1.1, 1.0), fontsize='small')
-        axs[0].xaxis.set_major_locator(ticker.MaxNLocator(nbins=7))
+        axs[0].set_title(f'Temperature vs Time({AAA})' )
+        axs[0].xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))
+        #axs[0].xaxis.set_major_locator(mdates.HourLocator(interval=1))
+        axs[0].xaxis.set_major_locator(ticker.MaxNLocator(nbins=6))  
         axs[0].tick_params(axis='x', rotation=45)
-
+        axs[0].legend(loc='upper left', bbox_to_anchor=(1.1, 1.0), fontsize='small')
 
         # 设置湿度图的属性
         axs[1].grid(True)
         axs[1].set_ylabel('Humidity (%)')
-        axs[1].set_title(f'Humidity vs Time ({AAA})')
-        #axs[1].set_xlabel('Row Number')
+        axs[1].set_title(f'Humidity vs Time({AAA}) ')
+        axs[1].xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))
+        #axs[1].xaxis.set_major_locator(mdates.HourLocator(interval=1))
+        axs[1].xaxis.set_major_locator(ticker.MaxNLocator(nbins=6))  
+        axs[1].tick_params(axis='x', rotation=45)
         axs[1].legend(loc='upper left', bbox_to_anchor=(1.1, 1.0), fontsize='small')
-        axs[0].tick_params(axis='x', rotation=45)
-
-        axs[1].xaxis.set_major_locator(ticker.MaxNLocator(nbins=7)) 
 
         plt.tight_layout()
 
