@@ -64,6 +64,35 @@ sensor_data = {}
 initialization_done = False
 start_time = time.time()  # 记录程序开始时间
 
+
+def apply_temperature_correction(sensor_id, temperature):
+    """应用温度修正逻辑"""
+    corrections = {
+        'AHT20_0': -0.4,
+        'AHT20_1': 0,
+        'AHT20_2': 0.3,
+        'AHT20_3': 0.3,
+        'AHT20_4': 0.2,
+        'AHT20_5': -0.1,
+        'AHT20_6': 1,
+        'AHT20_7': -0.1
+    }
+    return temperature + corrections.get(sensor_id, 0)
+
+def apply_humidity_correction(sensor_id, humidity):
+    """应用湿度修正逻辑"""
+    corrections = {
+        'AHT20_0': -3,
+        'AHT20_1': -6,
+        'AHT20_2': -7,
+        'AHT20_3': -2,
+        'AHT20_4': -2,
+        'AHT20_5': -7,
+        'AHT20_6': 0,
+        'AHT20_7': -7
+    }
+    return humidity + corrections.get(sensor_id, 0)
+
 def write_averages():
     """写入平均值到 average_{timestamp}.txt"""
     average_file_path = f'{base_path}/average_{timestamp}.txt'
@@ -181,16 +210,18 @@ try:
                                     
                                     # 写入数据，不包含符号
                                     temperature_value = float(temperature.replace('°C', '').strip())
+                                    corrected_temperature = apply_temperature_correction(sensor_id, temperature_value)
                                     humidity_value = float(humidity.replace('%', '').strip())
+                                    corrected_humidity = apply_humidity_correction(sensor_id, humidity_value)
                                     
-                                    sensor_files[sensor_id].write(f"{current_timestamp} {temperature_value:.2f} {humidity_value:.2f}\n")
+                                    sensor_files[sensor_id].write(f"{current_timestamp} {corrected_temperature:.2f} {corrected_humidity:.2f}\n")
                                     sensor_files[sensor_id].flush()
                                     
                                     # 更新传感器数据字典
                                     if current_timestamp not in sensor_data[sensor_id]:
-                                        sensor_data[sensor_id][current_timestamp] = [temperature_value, humidity_value]
+                                        sensor_data[sensor_id][current_timestamp] = [corrected_temperature, corrected_humidity]
                                     else:
-                                        sensor_data[sensor_id][current_timestamp] = [temperature_value, humidity_value]
+                                        sensor_data[sensor_id][current_timestamp] = [corrected_temperature, corrected_humidity]
                                 
                                 # 计算并写入平均值
                                 write_averages()
