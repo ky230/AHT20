@@ -34,23 +34,23 @@ void loop() {
   }
 }
 
-// // 初始化 AHT20 传感器
-// void initializeAHT20(AHT20 &sensor, uint8_t channel) {
-//   I2CMux.openChannel(channel);  // 打开指定的通道
-//   delay(50);                    // 等待传感器稳定
+// 初始化 AHT20 传感器
+void initializeAHT20(AHT20 &sensor, uint8_t channel) {
+  I2CMux.openChannel(channel);  // 打开指定的通道
+  delay(50);                    // 等待传感器稳定
 
-//   if (sensor.begin()) {
-//     Serial.print("AHT20 on channel ");
-//     Serial.print(channel);
-//     Serial.println(" initialized.");
-//   } else {
-//     Serial.print("AHT20 on channel ");
-//     Serial.print(channel);
-//     Serial.println(" not detected.");
-//   }
+  if (sensor.begin()) {
+    Serial.print("AHT20 on channel ");
+    Serial.print(channel);
+    Serial.println(" initialized.");
+  } else {
+    Serial.print("AHT20 on channel ");
+    Serial.print(channel);
+    Serial.println(" not detected.");
+  }
 
-//   I2CMux.closeChannel(channel);  // 关闭通道
-// }
+  I2CMux.closeChannel(channel);  // 关闭通道
+}
 
 // 打印所有连接的 AHT20 传感器数据
 void printSensorData() {
@@ -94,6 +94,7 @@ void disableAllLEDs() {
     digitalWrite(i, LOW);
   }
 }
+
 
 
 

@@ -101,9 +101,9 @@ def plot_data(sensor_list, save_path=None):
                             if abs(curr_temperature - prev_temperature) > 0.001 * prev_temperature:
                                 curr_temperature = prev_temperature  
                             
-                            # 检查湿度变化是否大于0.1%
-                            if abs(curr_humidity - prev_humidity) > 0.001 * prev_humidity:
-                                curr_humidity = prev_humidity  
+                            # # 检查湿度变化是否大于0.1%
+                            # if abs(curr_humidity - prev_humidity) > 0.001 * prev_humidity:
+                            #     curr_humidity = prev_humidity  
                             
                             
                             corrected_temperature.append(curr_temperature)
@@ -116,6 +116,21 @@ def plot_data(sensor_list, save_path=None):
                      
                         axs[0].plot(avg_data.index, corrected_temperature, linestyle='-', marker=None, label='Average Temperature', linewidth=1)
                         axs[1].plot(avg_data.index, corrected_humidity, linestyle='-', marker=None, label='Average Humidity ', linewidth=1)
+
+                        xticks = axs[0].get_xticks().astype(int)  
+                        valid_xticks = xticks[(xticks >= 0) & (xticks < len(avg_data))]  
+
+                        time_labels = avg_data['Timestamp'].iloc[valid_xticks].dt.strftime('%H:%M:%S')
+
+                        axs[0].set_xticks(valid_xticks)  
+                        axs[0].set_xticklabels(time_labels, rotation=45, ha='right')
+                        axs[0].xaxis.set_major_locator(ticker.MaxNLocator(nbins=7))
+    
+
+                        axs[1].set_xticks(valid_xticks) 
+                        axs[1].set_xticklabels(time_labels, rotation=45, ha='right')
+                        axs[1].legend(loc='upper left', bbox_to_anchor=(1.1, 1.0), fontsize='small')
+                        axs[1].xaxis.set_major_locator(ticker.MaxNLocator(nbins=7))
             else:
                 sensor_files = find_files_in_folder(latest_folder, f'{sensor}_*.txt')
                 if sensor_files:
@@ -156,6 +171,8 @@ def plot_data(sensor_list, save_path=None):
         axs[0].legend(loc='upper left', bbox_to_anchor=(1.1, 1.0), fontsize='small')
         axs[0].xaxis.set_major_locator(ticker.MaxNLocator(nbins=7))
         axs[0].tick_params(axis='x', rotation=45)
+        axs[0].yaxis.set_major_locator(ticker.MultipleLocator(0.3))
+        axs[0].set_ylim(22, 24)
 
 
         # 设置湿度图的属性
@@ -164,9 +181,10 @@ def plot_data(sensor_list, save_path=None):
         axs[1].set_title(f'Humidity vs Time ({AAA})')
         #axs[1].set_xlabel('Row Number')
         axs[1].legend(loc='upper left', bbox_to_anchor=(1.1, 1.0), fontsize='small')
-        axs[0].tick_params(axis='x', rotation=45)
+        axs[1].tick_params(axis='x', rotation=45)
 
         axs[1].xaxis.set_major_locator(ticker.MaxNLocator(nbins=7)) 
+        axs[1].yaxis.set_major_locator(ticker.MultipleLocator(1))
 
         plt.tight_layout()
 
